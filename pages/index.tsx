@@ -1,9 +1,26 @@
+import { Seo } from "@/components/common";
+import { FeatureWorks, HeroSection, RecentPosts } from "@/components/home";
 import { MainLayout } from "@/components/layout";
 import { NextPageWithLayout } from "@/models";
 import { Box } from "@mui/system";
 
 const Home: NextPageWithLayout = () => {
-  return <Box>HomePage</Box>;
+  return (
+    <Box>
+      <Seo
+        data={{
+          title: "Nextjs-Tutorials",
+          description: "Step by step tutorials",
+          url: "",
+          thumbnailUrl:
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAAAflBMVEX///8AAADk5OTv7++0tLR8fHz7+/s5OTmPj4/V1dXKysqAgIDy8vLf39/39/e5ubm/v7+goKCnp6eWlpZiYmJOTk6urq7T09O8vLzo6Oh0dHQPDw8vLy9sbGxVVVXNzc0oKChGRkZnZ2dJSUmJiYkiIiI+Pj4aGhoqKioTExNep6QlAAAJaklEQVR4nO2d2WLiOgyGMUtaSsKwdaF06D7L+7/gIVKgKSS2JMtJzsT/zdAhJOYjsiVZdgaDf1lJ2w3ovIZtN6Dz2m7bbkHXlSzabkHntWy7AZ3XatR2C7qu53HbLei60p9tt6Dzeo8ukUOPN223oOsaP7bdgq5raNpuQedlsrZb0HXdrttuQde1fmm7BV3Xs4lutV2puWu7CV3X577tFnRdP8287SZ0XCsTk0R2TU2MXu2am+hWO/Rq7ttuQsc1M7O2m9Bx/TAvbTeh4xqaGL06tDMxerVrb67abkLHdW1MnHu16sbE6NWukTExerXrxZi07TZ0W28mRq92LU2MXu26NzF6tSs9EHpuuxHd1i8To1e7JsZ8tt2GbmtsYvRqV3YgFKNXm5IDoRi9WrU3MXq16xDem1Xbjei0FgdCt203otPaHgg1Mvc6Gubyi5PToUhQsZnBS8lVPw+EHvIXW9nlC7m/+qMBeRWY3hmRAMwSXgoC9Z+Hj73Bq1vZ5Qu5i/wneOAbv41fGssah2PRBl6zb2O4ZlI6g1Tu/r5A5JVw8UKUwOt35iWhIyoqh5tC5NPxCREVPdA9/MH0kf+Yr+i1IUMzZsNrY1mA6GM+Yur48Wu4/pRzxdnhA7+Pf6T1l0iB/5Wtae5b44QIRweRANG1+OODq/zzfxkfyD0iWvQ6BETCdhUCRDNgJDY1X0QjuDw9uZrSr6eGaLnwMjVfREVn9oN6+C/611ZDtMZRgdzGM3kjAifHUKuBoe8iRq+KiBIfU/NHNPibn+IX6dDn/FBq9KqIKJ/yFU9pKiDKDPUc8/xAcvSqiQgjEZmpKSAarIERoRAvzxHRnXG97jp/tWNduywNRIP3/CQ7Z6y45P2SuoimYlNTQZSSHNiMOfTqIhp85C8lC5NVEKE/6KqBgWMYJ1VGBBkYianpICryMtbRHHwTzrpXbUSZ0NSUEOFP9GQ5ABJTE84ptRHhsMI3NS1EOPJ/1L4P3/d37du1H9FEhAGlLL2lgKhIQdYWMcBdxsoIBEC0ZfllR6khQqenLkv8KLiMPqLBijCqXEgPEbjONd3hg+TbBkCEKTzm6lI9RBgHVUZgI/d4V6EQiFKBqSkiGmDqqmLW6OqsoTSpISr/aj/4pqaJCLLSFSVD4Ne+ss8WBBG6ZyxTU0UEI8aF8wMZEIFbGwZRwv69VBEVE5ffXWjsxgV5iDCIsMvkVFzoIqqafIRBRJI4DoQIHRDG2KGMCDOg5SFjbXOXrAqFCFJHjPlRZUTF5OPX6DWtMD2igiG655maNqJi8vE4UYZ3lWzXpmCIcIglm5o6ou+Tj/vyH0ypIbp0gz45o5o+olHpxoGYiBm9nhQQUcbxZfURoQMLc+j0uZEqBUSEgwjR1AIgyhdQ4cj/O//XlmezKiQi6A5oc39BEOGEzGsxTyveljkooi3d1IIgwpF+b+jNqFJQRNhNkkwNED0+33DkDrfQXzScceNSYRGB108yNUmVGmGEej0e67E5WmBEKfUeD4QoLQ712XM4MCIceQmmFghR0VV7reoMjQhibsL5AyF6KA71qMIMjwiiI3ct65h2GFOjE06PpTDBEWHqyOmUBBn0MU5DyZ9WER4RpI6cVwiCCCJpg7UQL+KzqCGyjBk7gg2FQITJ6nURrLHm8ctqAtE94UYPgOhr2QMOa9L1F00gghveEUUGQISLFqA8FYI16bYpjSCC1JHd1PQRYf0DpmIxGyIMQppBBE20riZQR4RUjstglkbuVDSDCOLJP7YD1BGd5Yhuqc7mpRpCBB6KjYA2IuyhvyIfnGjcSU7VFKKtw9SUEeE4X/bVsF5EsvKyKUSQOnqpf1sX0baCB9aLCEL+xhBBb1DPQBfRU5VVPZ3ZHlXNIUqtpqaKaFbZN+Otxc/yqyFyl1yMbaamieimZoS/++YHkNUgIkgd1ZX7KiKa1/qJm5I3SVeTiBKLa6KICBbLVEcb8A53yRwT0eLm2Jssrt8217hcmIoILKBmSy49RGvLrVLMGvFOyEOUHHMKaO5FU8iIIHVUbWpqiKbWDgf58ebU2Ijg4nkm5nPz9oKM6Igg5K40NTVEO/uw9WqsA2uVZIj+FkjyhB4LUZ46qlyBoYVo43B+cNaItQhEhGh4upOX+XILQETcxeCjxgqUEOG4bqtnxjQtZ7dUEaL7UyvSxWLLQgSpowpT00GE3qF9RgiXrDEqZ6V3UdnaWYiy6vtcBxHUpLvCeVhMxJjBFvdFZn26F1iIYFC5NDUVRLh5iSspBF+ZWtQzkCLCkdXsl9tTy+g7quSpo4uV4hqIsJtxpxaxrI98MRmiwfa4J9LPpEBEn1/YVhmDAiIcrCiFzFhxRH2yjhDRIRJ6mD0VLggTEfyK56amgAhdHkp0gdNH1Dp1MaJcozWMDVxEkDo6+w39EWGhNS1GxcJ1YiDihQjMf8ZHNLo0NW9E9sDjXMiTVgtBQ5Tc3MBs6hwbMV6eopy8spmNCIBMLv7HBxHajnWS5ZuwIIKUgnQiSnPjnhd35TMOGJOTnTznMSEfEcQJ31ZB+yJyBR7nwrKaF8qhLkRj/PJXcFdu/6DXMT0iyQP+oQRRcm5qnohwHOcspKTXQrgQXaE/D0UWeRCN65dwCeV78bUEiMCHKa9a8UOEU6+8GSByLYQL0UfhiyH00wqvVeEWwQ8nQQShUmn48UOEMQXzQzBfS6iFcPZFD8V3n9/NJuvSSL1YTyZrfE+ECBI7X39h3XU2ZQoTPxiZcmej8dZzu5pquWs2ovtvpibcHRQGEaz55Nc0EGsh2kMEs10nUxMiyvtJHJwklTG0WogWEUEPcnztgQhdHMlOgDid5OrDNBA9ChHlncEx/Sfc73p/nHoVrXotZikcgQj0Wb7PUkkOknxuWfpuiUyHWyGRXv54VdcN6HMBb+VZidYu/v9QYuJzyVyairuR/mgZTc2pvedzDXqgROYw9EpZNDWnltHUnNpHU3NKGGL1SVO/xau90NLnESI90SaOak7toqm5lMkfIdIbreKo5tQmmppTu2hqLmXR1JxaSZ/W0yNtvPYZ6od20u0G+qMsmppTq2hqTm2iqTkVH0zuVMZ+hEj/dBdNzakNfQVLb+WzfV5PNPTZ7rQnuvOsCeuD9tHUnBJsENM3ZeJt4Pujlfp+s/+eNtHUnIqxmlNZNDWnVqzNT/qp+gfkRhVKogPpVBZNzalYte4WddOKHiv5NzKQ/wFkLFoOXh7oKwAAAABJRU5ErkJggg==",
+        }}
+      />
+      <HeroSection />
+      <RecentPosts />
+      <FeatureWorks />
+    </Box>
+  );
 };
 
 Home.Layout = MainLayout;

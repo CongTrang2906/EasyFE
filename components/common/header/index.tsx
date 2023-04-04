@@ -5,9 +5,9 @@ import { HeaderMobile } from "./header-mobile";
 
 export function Header() {
   return (
-    <>
+    <Box>
       <HeaderMobile></HeaderMobile>
       <HeaderDesktop></HeaderDesktop>
-    </>
+    </Box>
   );
 }

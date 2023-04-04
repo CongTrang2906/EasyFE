@@ -1,3 +1,4 @@
+// export để trang header-desktop map vào
 export const ROUTE_LIST=[
     {
         label:'Home',

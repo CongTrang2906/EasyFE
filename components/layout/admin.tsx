@@ -1,5 +1,7 @@
 //tsrpfc
 import { LayoutProps } from "@/models/index";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import Link from "next/link";
 import * as React from "react";
 
@@ -9,12 +11,12 @@ export function AdminLayout({ children }: LayoutProps) {
       <h1>Admin Layout</h1>
       <div>SideBar</div>
       <Link href="/">
-        <a>Home</a>
+        <p>Home</p>
       </Link>
       <Link href="/about">
-        <a>About</a>
+        <p>About</p>
       </Link>
-      <div>{children}</div>
+      <p>{children}</p>
     </div>
   );
 }

@@ -1,5 +1,8 @@
-import Header from "@/components/common/header";
+// import Header from "@/components/common/header";
+import { Header } from "@/components/common";
 import { MainLayout } from "@/components/layout";
+import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 //import dynamic from "next/dynamic";
@@ -45,10 +48,13 @@ export default function AboutPage(props: AboutPageProps) {
     );
   }
   return (
-    <div>
+    <Box>
       {/* có một dự liệu tĩnh bên phía server vd heder ,about  render sẳn bên phía sever*/}
-      <h1>About Page</h1>
-      <Header></Header>
+      <Typography component="h1" variant="h3" color="primary.main">
+        About Page
+      </Typography>
+      <Header />
+      {/* <Header></Header> */}
       {/* List sẽ làm bên phía client đi feth dữ liệu*/}
       <ul className="post-list">
         {postList.map((post: any) => (
@@ -56,7 +62,7 @@ export default function AboutPage(props: AboutPageProps) {
         ))}
       </ul>
       <button onClick={handleNextClick}>Next Page</button>
-    </div>
+    </Box>
   );
 }
 
