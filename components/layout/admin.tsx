@@ -1,22 +1,45 @@
-//tsrpfc
-import { LayoutProps } from "@/models/index";
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import Link from "next/link";
+import { LayoutProps } from "@/models";
 import * as React from "react";
+import Link from "next/link";
+import { Auth } from "../common";
+
+import { useRouter } from "next/router";
+import { useAuth } from "@/hook";
 
 export function AdminLayout({ children }: LayoutProps) {
+  const { profile, logout } = useAuth();
+  const router = useRouter();
+
+  async function handleLogoutClick() {
+    try {
+      await logout();
+      console.log("redirect to login page");
+      router.push("/login");
+    } catch (error) {
+      console.log("failed to logout", error);
+    }
+  }
+
   return (
-    <div>
+    <Auth>
       <h1>Admin Layout</h1>
-      <div>SideBar</div>
+      <div>Sidebar</div>
+
+      <p>Profile: {JSON.stringify(profile)}</p>
+
+      <div>
+        <button onClick={handleLogoutClick}>Logout</button>
+      </div>
+
       <Link href="/">
-        <p>Home</p>
+        <a>Home</a>
       </Link>
+
       <Link href="/about">
-        <p>About</p>
+        <a>About</a>
       </Link>
-      <p>{children}</p>
-    </div>
+
+      <div>{children}</div>
+    </Auth>
   );
 }

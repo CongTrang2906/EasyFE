@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter, LinkedIn } from "@mui/icons-material";
 import { Box, Stack, Typography, Icon } from "@mui/material";
+import Link from "next/link";
 import * as React from "react";
 
 export function Footer() {
@@ -13,15 +14,13 @@ export function Footer() {
     <Box className="footer" py={2} textAlign="center">
       <Stack direction="row" justifyContent="center">
         {socialLinks.map((item, idx) => (
-          <Box
-            key={idx}
-            component="a"
-            p={2}
-            href={item.url}
-            //mở link tab mới luôn luôn có dòng này
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Box key={idx} p={2}>
+            <Link
+              href={item.url}
+              //mở link tab mới luôn luôn có dòng này
+              target="_blank"
+              rel="noopener noreferrer"
+            ></Link>
             <Icon component={item.icon} fontSize="large" />
           </Box>
         ))}

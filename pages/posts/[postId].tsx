@@ -27,13 +27,14 @@ export default function PostDetailPage({ post }: PostPageProps) {
 // chạy getstaticpath 1 lần
 export const getStaticPaths: GetStaticPaths = async () => {
   console.log("Get Static Paths");
-
+  //gọi api : 10 items
   const response = await fetch(
     "https://js-post-api.herokuapp.com/api/posts?_page=1"
   );
   const data = await response.json();
 
   return {
+    //return về 10 items
     paths: data.data.map((post: any) => ({ params: { postId: post.id } })),
     // bao nhiêu thằng path thì gọi getStaticProps bấy nhiêu lần
     // paths: [

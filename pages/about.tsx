@@ -74,8 +74,3 @@ export async function getStaticProps() {
     props: {},
   };
 }
-// export async function getServerSideProps() {
-//   return {
-//     props: {},
-//   };
-// }
